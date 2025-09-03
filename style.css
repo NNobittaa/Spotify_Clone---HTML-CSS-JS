@@ -460,10 +460,11 @@ input[type="text"]{
     height: 8vh;
     width: 98%;
     margin-top: 4px;
+    margin-bottom: 0px;
     margin-left: 0.5%;
     justify-content: space-between;
     align-items: anchor-center;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     background-image: linear-gradient(90deg, #af2896, #509bf5);
 }
 .footer-txt{
