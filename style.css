@@ -196,7 +196,7 @@ input[type="text"]{
     height: 80vh;
     width: 68%;
     border-radius: 10px;
-    background-image: linear-gradient(#272727, #121212);
+    background-image: linear-gradient(#1d1d1d, #101010);
     margin-top: 6px;
     margin-left: 3px;
     overflow-y: scroll;
@@ -425,4 +425,21 @@ input[type="text"]{
 .Feature-card{
     height: 280px;
 }
-
+.right_info{
+    justify-content: space-between;
+    font-size: 16px;
+    margin: 50px;
+    
+}
+.font-grey{
+    color: #b3b3b3;
+}
+.font-white{
+    color: white;
+}
+.left_right_info{
+    gap: 75px;
+}
+.right_right_info{
+    gap: 15px;
+}

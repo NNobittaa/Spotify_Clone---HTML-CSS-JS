@@ -42,7 +42,7 @@
     cursor: pointer;
 }
 .zoom-btn{
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.6s ease, color 0.6s ease;
 }
 .zoom-btn:hover{
     transform: scale(1.05);
@@ -114,8 +114,39 @@
     border-radius: 100px;
 }
 .line{
+    justify-self: center;
     background-color: rgb(57, 57, 57);
-    width: 95%;
+    width: 92%;
     height: 1px;
-    margin-left: 2.5%;
+    margin: 60px;
+}
+
+.info_svg{
+    width: 18px;
+}
+.info-svg-box{
+    width: 50px;
+    height: 50px;
+    background-color: #222222;
+    border-radius: 30px;
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+.info-svg-box:hover{
+    transform: scale(1.1);
+    background-color: #323232;
+}
+.info_column{
+    flex-direction: column;
+    gap: 15px;
+}
+.info_txt{
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+.info_txt:hover{
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.copyright{
+    padding: 0px 40px 40px 40px;
 }
