@@ -1,0 +1,121 @@
+.border{
+    border: 2px solid red;
+    margin: 3px;
+}
+
+.flex{
+    display: flex;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.items-center{
+    align-items: center;
+}
+
+.invert{
+    filter: invert(1);
+}
+
+.space-bw{
+    justify-content: space-between;
+}
+
+/* Base style for the element you want to animate */
+.zoom-text {
+  color: rgb(179, 179, 179); /* The initial color of the text */
+  transition: transform 0.3s ease, color 0.3s ease; /* This makes the change smooth over 0.3 seconds */
+}
+
+/* Styles applied when the mouse hovers over the element */
+.zoom-text:hover {
+  transform: scale(1.1); /* This scales the text to 120% of its original size */
+  color: #ffffff; /* The color the text changes to on hover */
+  cursor: pointer;
+}
+.cursor{
+    transition: transform 0.3s ease, color 0.3s ease; 
+}
+.cursor:hover{
+    cursor: pointer;
+}
+.zoom-btn{
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.zoom-btn:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    border: 1.5px solid white;
+}
+.hovr-search{
+    transition: transform 1s ease, color 1s ease; 
+}
+.hovr-search:hover{
+    background-color: #282828;
+}
+
+.ul{
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.ul:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.round{
+    border-radius: 10px;
+}
+.white{
+    color:white;
+}
+.gradient-card{
+    background-color: transparent;
+    transition: transform 1s ease, color 1s ease;
+}
+.gradient-card:hover{
+    background-image: linear-gradient(#202020, #272727);
+}   
+
+.invisible{
+    transition: transform 1s ease, color 1s ease;
+}
+.invisible:hover{
+    opacity: 1;
+}
+
+.btn-zoom-color{
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.btn-zoom-color:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: #2aed6e;
+}
+.song-cont-1{
+    font-size: 17px;
+    font-weight: 400;
+}
+.song-cont-2{
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(179, 179, 179);
+}
+.plus-transition{
+    background-color: transparent;
+    transition: transform 1s ease, color 1s ease;
+}
+.plus-transition:hover{
+    background-color: #212121;
+    cursor: pointer;
+}
+.artist-card{
+    border-radius: 100px;
+}
+.line{
+    background-color: rgb(57, 57, 57);
+    width: 95%;
+    height: 1px;
+    margin-left: 2.5%;
+}
