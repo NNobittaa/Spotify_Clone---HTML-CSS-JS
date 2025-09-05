@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Spotify - Web Player: Music for everyone</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="utility.css" />
   </head>
   <body>
+    <script src="script.js"></script>
     <div class="nav flex items-center">
       <div class="navBox logoSide flex items-center">
         <div class="logo_img">
@@ -87,16 +88,11 @@
           </div>
         </div>
 
-        <div class="scroll">
-          <div class="opt1" style="margin-bottom: 25px; margin-top: 0px">
-            <div class="create"><b>Create your first playlist</b></div>
-            <div class="easy">it's easy we'll help you</div>
-            <button class="zoom-btn">Create playlist</button>
-          </div>
-          <div class="opt2" style="margin-bottom: 25px; margin-top: 25px">
-            <div class="create"><b>Let's find some podcasts to follow</b></div>
-            <div class="easy">We'll keep you updated on new episodes</div>
-            <button class="zoom-btn">Browse podcasts</button>
+        <div class="scroll font-white ">
+          <div class="songList">
+            <ul>
+              
+            </ul>
           </div>
         </div>
 
@@ -1242,16 +1238,24 @@
 
     </div>
 
-    <div class="footer-box">
-      <div class="footer flex">
-        <div class="footer-txt">
-        <span class="cursor"><b>Preview of Spotify</b></span>
-        <span class="cursor">Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</span>
+    <div class="footer-box playbar ">
+
+      <div class="seekBar">
+        <div class="circle">
+
+        </div>
       </div>
-      <div class="footer-btn login zoom-text">
-        <button><b>Sign up free</b></button>
+      <div class="songinfo">
+
+      </div>
+      <div class="songbuttons flex justify-center align-center">
+        <img src="logo_svg/previous-svgrepo-com.svg" alt="">
+        <img src="logo_svg/play-button-svgrepo-com.svg" alt="">
+        <img src="logo_svg/next-svgrepo-com.svg" alt="">
+      </div>
+      <div class="songtime">
+
       </div>
     </div>
-    
   </body>
 </html>
