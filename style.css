@@ -558,6 +558,12 @@ input[type="text"]{
     transition: left 0.5s;
 }
 
+.songbuttons img{
+    cursor: pointer;
+    width: 34px;
+    margin: 10px;
+}
+
 @media (max-width:1378px){
     .container{
         background-color: white;
