@@ -526,11 +526,13 @@ input[type="text"]{
 
 .playNow span{
     font-size: 12px;
+    width: 54px;
 }
 .currentSongInfo{
     flex-direction: column;
     display: flex;
     gap: 6px;
+    margin: 0 16px;
     font-size: 14px;
 
 }
