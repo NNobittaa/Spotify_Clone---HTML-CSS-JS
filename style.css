@@ -156,6 +156,29 @@ input[type="text"]{
     margin-right: 9px;
     border-radius: 30px;
 }
+.loginSide{
+    display: flex;
+}
+
+.profile{
+    position: relative;
+    border-radius: 33px;
+    width: 48px;
+    margin: 20px;
+    height: 48px;
+    background-color: red;
+    display: none;
+}
+
+.profile img{
+    width: 24px;
+    display: none;
+    padding: 30px;
+    position: relative;
+    top: -18px;
+    right: 17px;
+    display: none;
+}
 
 .login button{
     background-color: white;
@@ -481,10 +504,9 @@ input[type="text"]{
     display: flex;
     text-align: -webkit-center;
     margin-left: 12px;
-    justify-content: center;
     text-align: -webkit-center;
     margin-left: 12px;  
-    justify-content: center;
+    justify-content: space-between;
     height: 7vh;
     margin: 6px 12px;
     place-self: anchor-center;
@@ -541,13 +563,14 @@ input[type="text"]{
 }
 
 .seekBar{
+    margin: 5px 20px;
     position: absolute;
     height: 2px;
     bottom: 4px;
     width: 97%;
     border-radius: 10px;
     background-color: white;
-    margin: 5px;
+    cursor: pointer;
 }
 .circle{
     width: 13px;
@@ -555,7 +578,7 @@ input[type="text"]{
     border-radius: 18px;
     background-color: #fffefe;
     position: absolute;
-    left: -2px;
+    left: 0%;
     bottom: -5px;
     transition: left 0.5s;
 }
@@ -566,8 +589,40 @@ input[type="text"]{
     margin: 10px;
 }
 
-@media (max-width:1378px){
-    .container{
-        background-color: white;
+.songtime{
+    margin-right: 30px;
+}
+.songinfo{
+    margin-left:30px
+}
+
+.hamburger{
+    display: none;
+}
+
+@media (max-width:1377px){
+    /* .l_contain{
+        border: 2px solid red;
+        position: absolute;
+        left: -0%;
+        transition: all 0.3s;
+        z-index: 1;
+    } */
+    .r_contain{
+        width: 100vw;
+    }
+    .loginSide{
+        display: none;
+    }
+    
+    .profile img{
+        display: block;
+    }
+    .profile{
+        display: block;
+    }
+
+    .hamburger{
+        display: block;
     }
 }
