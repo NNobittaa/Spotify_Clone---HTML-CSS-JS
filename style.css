@@ -596,9 +596,16 @@ input[type="text"]{
     margin-left:30px
 }
 
-.hamburger{
+.hamburger img{
+    width: 34px;
     display: none;
 }
+.hamburger{
+    display: flex;
+}
+.logoSide{
+        display: flex;
+    }
 
 @media (max-width:1377px){
     /* .l_contain{
@@ -614,6 +621,9 @@ input[type="text"]{
     .loginSide{
         display: none;
     }
+    .logoSide{
+        display: none;
+    }
     
     .profile img{
         display: block;
@@ -623,6 +633,13 @@ input[type="text"]{
     }
 
     .hamburger{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hamburger img{
         display: block;
+        padding: 34px 20px;
     }
 }
