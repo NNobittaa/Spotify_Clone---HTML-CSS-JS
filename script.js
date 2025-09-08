@@ -3,7 +3,7 @@ let currentSong = new Audio();
 
 async function getSongs() {
   //Fetching songs from the files
-  let a = await fetch("http://192.168.56.1:3000/songs/");
+  let a = await fetch("https://spotify-clone-html-css-js-6jk0.onrender.com/songs/");
   let response = await a.text();
 
   // console.log(response)
