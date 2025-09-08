@@ -146,6 +146,21 @@ async function main() {
     document.querySelector(".circle").style.left = (e.offsetX/e.target.getBoundingClientRect().width)*100 + "%"
     currentSong.currentTime = ((currentSong.duration)*percentage)/100
   })
+
+  // Add event listener to hambox
+  document.querySelector(".hambox").addEventListener("click", ()=>{
+    document.querySelector(".l_contain").style.left="0"
+    document.querySelector(".hambox").addEventListener("click", ()=>{
+      document.querySelector(".l_contain").style.left="-130%"
+    })
+    
+
+  })
+  // document.querySelector(".hambox").addEventListener("click", ()=>{
+  //   if (document.querySelector(".l_contain").style.left=="0%") {
+  //     document.querySelector(".l_contain").style.left="-100%"
+  //   }
+  //   })
 }
 main();
 
