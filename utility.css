@@ -72,7 +72,7 @@
 }
 .gradient-card{
     background-color: transparent;
-    transition: transform 1s ease, color 1s ease;
+    transition: all 2s;
 }
 .gradient-card:hover{
     background-image: linear-gradient(#202020, #272727);
@@ -88,31 +88,38 @@
 .btn-zoom-color{
     transition: transform 0.3s ease, color 0.3s ease;
 }
+
 .btn-zoom-color:hover{
     transform: scale(1.1);
     cursor: pointer;
     background-color: #2aed6e;
 }
+
 .song-cont-1{
     font-size: 17px;
     font-weight: 400;
 }
+
 .song-cont-2{
     font-size: 15px;
     font-weight: 500;
     color: rgb(179, 179, 179);
 }
+
 .plus-transition{
     background-color: transparent;
     transition: transform 1s ease, 1s ease;
 }
+
 .plus-transition:hover{
     background-color: #212121;
     cursor: pointer;
 }
+
 .artist-card{
     border-radius: 100px;
 }
+
 .line{
     justify-self: center;
     background-color: rgb(57, 57, 57);
@@ -124,6 +131,7 @@
 .info_svg{
     width: 18px;
 }
+
 .info-svg-box{
     width: 45px;
     height: 45px;
@@ -131,25 +139,31 @@
     border-radius: 30px;
     transition: transform 0.4s ease, 0.4s ease;
 }
+
 .info-svg-box:hover{
     transform: scale(1.1);
     background-color: #323232;
 }
+
 .info_column{
     flex-direction: column;
     gap: 15px;
 }
+
 .info_txt{
     transition: transform 0.5s ease, color 0.5s ease;
 }
+
 .info_txt:hover{
     color: white;
     cursor: pointer;
     text-decoration: underline;
 }
+
 .copyright{
     padding: 0px 40px 40px 40px;
 }
+
 .container{
     margin: 0 0px 0 5px;
 }

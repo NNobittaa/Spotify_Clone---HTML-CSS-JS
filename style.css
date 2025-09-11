@@ -554,6 +554,7 @@ input[type="text"]{
     width: 54px;
 }
 .currentSongInfo{
+    overflow-wrap: anywhere;
     flex-direction: column;
     display: flex;
     gap: 6px;
@@ -610,8 +611,19 @@ input[type="text"]{
     display: none;
 }
 .logoSide{
-        display: flex;
-    }
+    display: flex;
+}
+.songbuttons{
+    position: absolute;
+    top: 5%;
+    right: 42%;
+}
+.time-vol{
+    align-items: center;
+    margin-right: 40px;
+    display: flex
+;
+}
 
 @media (max-width:1377px){
     .l_contain{
@@ -622,10 +634,8 @@ input[type="text"]{
         transition: all 0.3s;
         z-index: 1;
     }
-    .hambox:active .l_contain{
-        display: block;
-        /* position: sticky; */
-    }
+    
+    
     .r_contain{
         width: 100vw;
     }
@@ -645,11 +655,11 @@ input[type="text"]{
 
     .hamburger{
         margin: 0 21px;
-
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
 
     .hamburger img{
         display: block;
@@ -664,6 +674,7 @@ input[type="text"]{
     }
     .songinfo, .songtime{
         font-size: 11px;
+        width: min-content;
     }
     .trend_show{
         font-size: 19px;

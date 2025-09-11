@@ -1,9 +1,11 @@
 console.log("let's write something");
 let currentSong = new Audio();
+let currfolder;
 
-async function getSongs() {
+async function getSongs(folder) {
+  currfolder = folder;
   //Fetching songs from the files
-  let a = await fetch("https://spotify-clone-html-css-js-6jk0.onrender.com/songs/");
+  let a = await fetch(`http://192.168.56.1:3000/${folder}/`);
   let response = await a.text();
 
   // console.log(response)
@@ -14,7 +16,7 @@ async function getSongs() {
   for (let index = 0; index < as.length; index++) {
     const element = as[index];
     if (element.href.endsWith("mp3")) {
-      songs.push(element.href.split("/songs/")[1]);
+      songs.push(element.href.split(`/${folder}/`)[1]);
     }
   }
   // console.log(as);
@@ -22,21 +24,22 @@ async function getSongs() {
   return songs;
 }
 
-const playMusic = (track, pause=false) => {
+const playMusic = (track, pause = false) => {
   // let audio = new Audio("/songs/"+track)
-  currentSong.src = "/songs/" + track;
+  currentSong.src = `/${currfolder}/` + track;
   if (!pause) {
     currentSong.play();
     play.src = "logo_svg/pause-filled-svgrepo-com.svg";
   }
 
   currentSong.addEventListener("timeupdate", () => {
-        console.log(currentSong.currentTime, currentSong.duration);
-        document.querySelector(".songtime").innerHTML = `${formatSecondsToMinutes(currentSong.currentTime)}/${formatSecondsToMinutes(currentSong.duration)}` 
-        document.querySelector(".circle").style.left = (
-          (currentSong.currentTime/currentSong.duration)*100+"%"
-        );
-      });
+    // console.log(currentSong.currentTime, currentSong.duration);
+    document.querySelector(".songtime").innerHTML = `${formatSecondsToMinutes(
+      currentSong.currentTime
+    )}/${formatSecondsToMinutes(currentSong.duration)}`;
+    document.querySelector(".circle").style.left =
+      (currentSong.currentTime / currentSong.duration) * 100 + "%";
+  });
 
   // currentSong.play();
   document.querySelector(".songinfo").innerHTML = decodeURI(track);
@@ -50,28 +53,26 @@ const playMusic = (track, pause=false) => {
  */
 const formatSecondsToMinutes = (totalSeconds) => {
   // Ensure the input is a non-negative number
-  if (totalSeconds < 0 || typeof totalSeconds !== 'number') {
-    return '00:00';
+  if (totalSeconds < 0 || typeof totalSeconds !== "number") {
+    return "00:00";
   }
 
   // Calculate minutes and remaining seconds
   const minutes = Math.floor(totalSeconds / 60);
-  const seconds = parseInt(totalSeconds % 60)
+  const seconds = parseInt(totalSeconds % 60);
 
   // Use padStart() to ensure both minutes and seconds have two digits
-  const formattedMinutes = String(minutes).padStart(2, '0');
-  const formattedSeconds = String(seconds).padStart(2, '0');
+  const formattedMinutes = String(minutes).padStart(2, "0");
+  const formattedSeconds = String(seconds).padStart(2, "0");
 
   return `${formattedMinutes}:${formattedSeconds}`;
 };
 
-
 async function main() {
   // Get songs
-  let songs = await getSongs();
-  playMusic(songs[0], true)
+  let songs = await getSongs("songs/ncs");
+  playMusic(songs[0], true);
   // console.log(songs)
-
   // Show all the songs int the playlist
   let songUL = document
     .querySelector(".songList")
@@ -112,14 +113,17 @@ async function main() {
       );
       //  Listen for time update event
       currentSong.addEventListener("timeupdate", () => {
-        console.log(currentSong.currentTime, currentSong.duration);
+        // console.log(currentSong.currentTime, currentSong.duration);
       });
       currentSong.addEventListener("timeupdate", () => {
-        console.log(currentSong.currentTime, currentSong.duration);
-        document.querySelector(".songtime").innerHTML = `${formatSecondsToMinutes(currentSong.currentTime)}/${formatSecondsToMinutes(currentSong.duration)}`
-        document.querySelector(".circle").style.left = (
-          (currentSong.currentTime/currentSong.duration)*100+"%"
-        );
+        // console.log(currentSong.currentTime, currentSong.duration);
+        document.querySelector(
+          ".songtime"
+        ).innerHTML = `${formatSecondsToMinutes(
+          currentSong.currentTime
+        )}/${formatSecondsToMinutes(currentSong.duration)}`;
+        document.querySelector(".circle").style.left =
+          (currentSong.currentTime / currentSong.duration) * 100 + "%";
       });
     });
   });
@@ -129,40 +133,64 @@ async function main() {
     if (currentSong.paused) {
       currentSong.play();
       play.src = "logo_svg/pause-filled-svgrepo-com.svg";
-      
     } else {
       currentSong.pause();
       play.src = "logo_svg/play-svgrepo-com.svg";
-
-      //  Listen for time update event
-      
     }
   });
 
-  // Add an event listener to seekbar 
-  document.querySelector(".seekBar").addEventListener("click", e=>{
-    let percentage =(e.offsetX/e.target.getBoundingClientRect().width)*100
-    console.log((e.offsetX/e.target.getBoundingClientRect().width)*100);
-    document.querySelector(".circle").style.left = (e.offsetX/e.target.getBoundingClientRect().width)*100 + "%"
-    currentSong.currentTime = ((currentSong.duration)*percentage)/100
-  })
+  // Add an event listener to seekbar
+  document.querySelector(".seekBar").addEventListener("click", (e) => {
+    let percentage = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+    // console.log((e.offsetX/e.target.getBoundingClientRect().width)*100);
+    document.querySelector(".circle").style.left =
+      (e.offsetX / e.target.getBoundingClientRect().width) * 100 + "%";
+    currentSong.currentTime = (currentSong.duration * percentage) / 100;
+  });
 
   // Add event listener to hambox
-  document.querySelector(".hambox").addEventListener("click", ()=>{
-    document.querySelector(".l_contain").style.left="0"
-    document.querySelector(".hambox").addEventListener("click", ()=>{
-      document.querySelector(".l_contain").style.left="-130%"
-    })
-    
+  document.querySelector(".hambox").addEventListener("click", () => {
+    if(document.querySelector(".l_contain").style.left == "-130%"){
+      document.querySelector(".l_contain").style.left = "0%";
+    }
+    else{
+      document.querySelector(".l_contain").style.left = "-130%";
+    }
+  });
 
-  })
-  // document.querySelector(".hambox").addEventListener("click", ()=>{
-  //   if (document.querySelector(".l_contain").style.left=="0%") {
-  //     document.querySelector(".l_contain").style.left="-100%"
-  //   }
-  //   })
+  //Add event listener to previous
+  previous.addEventListener("click", () => {
+    console.log("Previous Clicked");
+    let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
+    // console.log(songs, index)
+    if (index - 1 >= 0 && index - 1 <= 13) {
+      playMusic(songs[index - 1]);
+    }
+  });
+
+  //Add event listener to next
+  next.addEventListener("click", () => {
+    console.log("Next Clicked");
+    let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
+    console.log(songs, index, songs.length);
+    if (index + 1 < songs.length) {
+      playMusic(songs[index + 1]);
+      // console.log('next');
+    }
+  });
+
+  // Add event listener to volume btn
+  volume_btn.addEventListener("click", () => {
+    if (currentSong.muted == false){
+      currentSong.muted = true;
+      vol_btn.src="logo_svg/mute.svg"
+    }
+    else{
+      currentSong.muted = false;
+      vol_btn.src="logo_svg/volume-btn.svg"
+    }
+    
+  });
+
 }
 main();
-
-
-// Responsiveness
